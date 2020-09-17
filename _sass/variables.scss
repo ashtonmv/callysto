@@ -1,0 +1,35 @@
+$red:        hsl(0, 100%, 30%);
+$orange:     hsl(21, 100%, 50%);
+$yellow:     hsl(41, 100%, 63%);
+$green:      hsl(98, 64%, 68%);
+$blue:       hsl(199, 100%, 74%);
+$purple:     hsl(243, 60%, 60%);
+$pink:       hsl(336, 100%, 69%);
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+
+$header-font: "Comfortaa";
+$header-color: $purple;
+$body-font: "Zilla Slab";
+$body-color: darken($purple, 40%);
+$link-color: $purple;
+$mono-font: "Space Mono";
+
+// Breakpoints
+$tablet: "(min-width: 450px)";
+$mid-point: "(min-width: 900px)";
+$desktop: "(min-width: 1000px)";
+
+$code-font-size: 18px;
+
+$syntax-hue: 350;
+$syntax-saturation: 100%;
+$syntax-brightness: 95%;
+
+$base: darken($purple, 5%);
+$text: hsl($syntax-hue, $syntax-saturation, $syntax-brightness);
+$subtle: hsl($syntax-hue, $syntax-saturation, 80%);
+$highlight: hsl($syntax-hue, $syntax-saturation, 100%);
+$err: $red;

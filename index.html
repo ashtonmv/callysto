@@ -1,0 +1,158 @@
+---
+layout: default
+description: A delightful landing page for delightful apps.
+---
+<section class="hero">
+	{% if site.alert %}
+		<div class="alert" data-aos="zoom-in">
+			<span class="closebtn" onclick="this.parentElement.style.display='none';">okay whatever</span>
+			{{ site.alert }}
+		</div>
+	{% endif %}
+	<div class="overlay">
+		<img class="main-logo" src="images/logo.png"></img>
+		<div class="text-container">
+			<h1 class="editable"><strong>{{ page.description }}</strong></h1>
+			<div class="cta button alt"><a href="https://github.com/pyiron/pyiron" target="_blank">Browse on Github</a></div>
+			{% include sample_shell.md %}
+			<div>
+				<img src="{{ site.baseurl }}/images/dashboard.png" alt="Screenshot" class="screenshot editable" data-aos="fade-up"/>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="content no-padding">
+
+	{% assign text-left = true %}
+	{% for feature in site.data.features %}
+		{% if text-left %}
+			{% assign text-aos = "fade-right" %}
+			{% assign code-aos = "fade-left" %}
+		{% else %}
+			{% assign text-aos = "fade-left" %}
+			{% assign code-aos = "fade-right" %}
+		{% endif %}
+		<section>
+			<div class="container flex" {% unless text-left %}style="flex-direction: row-reverse;"{% endunless %}>
+				<div class="text editable" data-aos="{{ text-aos }}" data-aos-offset="300">
+					<h2>{{ feature.header }}</h2>
+					{{ feature.content }}
+				</div>
+				<div class="feature" data-aos="{{ code-aos }}" data-aos-offset="300">
+					{% include {{ feature.snippet }} %}
+				</div>
+			</div>
+		</section>
+		{% if text-left %}
+			{% assign text-left = false %}
+		{% else %}
+			{% assign text-left = true %}
+		{% endif %}
+	{% endfor %}
+<!-- 
+	<section>
+		<div class="container flex">
+			<div class="text editable" data-aos="fade-right">
+				<h2>Powerful simulation protocols</h2>
+				<p>pyiron comes with several built-in simulation workflows
+					used in published research.</p>
+				<p>And thanks to its modular infrastructure and tight integration with Jupyter,
+					you'll have no trouble building and sharing your own homemade protocols as
+					interactive Python notebooks.</p>
+			</div>
+			<div class="feature" data-aos="fade-left">
+				{% include sample_yaml.md %}
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="container flex">
+			<div class="text editable" data-aos="fade-left">
+				<h2>Powerful simulation protocols</h2>
+				<p>pyiron comes with several built-in simulation workflows
+					used in published research.</p>
+				<p>And thanks to its modular infrastructure and tight integration with Jupyter,
+					you'll have no trouble building and sharing your own homemade protocols as
+					interactive Python notebooks.</p>
+			</div>
+			<div class="feature" data-aos="fade-right">
+				{% include sample_javascript.md %}
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="container flex">
+			<div class="text editable" data-aos="fade-right">
+				<h2>Powerful simulation protocols</h2>
+				<p>pyiron comes with several built-in simulation workflows
+					used in published research.</p>
+				<p>And thanks to its modular infrastructure and tight integration with Jupyter,
+					you'll have no trouble building and sharing your own homemade protocols as
+					interactive Python notebooks.</p>
+			</div>
+			<div class="feature" data-aos="fade-left">
+				{% include sample_python.md %}
+			</div>
+		</div>
+	</section> -->
+
+	<div class="text-container" style="text-align: center; padding-bottom:20px;">
+		<h1>Latest News</h1>
+		<hr>
+	</div>
+	<div class="container flex">
+	{% assign news_icons = "releases, workshops, documentation, milestones" | split: ', ' %}
+	{% for post in site.categories.news limit:3 %}
+		<div class="news-card"
+		{% if news_icons contains post.categories[1] %}
+			style="background-image: url(/images/news-icon-{{ post.categories[1] }}.png)"
+		{% else %}
+			style="background-image: url(/images/news-icon-default.png)"
+		{% endif %}
+			>
+		<h3 style="color: {{ site.colors.main }}">{{ post.date | date: "%b %d, %Y"  }}</h3>
+		<p>
+		<a href="{{ post.url }}">
+			{{ post.title }}
+		</a>
+			<div class="post-details">
+				{% for category in post.categories %}
+					{% if category != "news" %}
+						<span class="blog-filter">
+							<a href="{{ site.baseurl }}/category/{{ category | slugify }}/">
+								{{ category }}
+							</a>
+						</span>
+					{% endif %}
+				{% endfor %}
+			</div>
+		</p>
+		</div>
+	{% endfor %}
+	</div>
+	<section class="bottom-cta">
+		<h2 class="editable">Sprinkl your landing page with some <strong>love</strong>.</h2>
+		<p>
+		<div class="button alt"><a href="https://github.com/pyiron/pyiron" target="_blank">Browse on Github</a></div>
+		</p><br>
+		<p>
+		<div class="button alt"><a href="https://mybinder.org/v2/gh/pyiron/pyiron/master" target="_blank">Live Demo</a></div>
+		</p>
+	</section>
+</div>
+
+<script>
+	// Create those little tabs on the upper right corners of
+	// code snippets
+	for (var i=0; i<$(".highlight").length; i++) {
+		var codeBlock = $(".highlight")[i];
+		var pre = $(codeBlock).find("pre").first();
+		var code = $(pre).find("code").first();
+		var syntax = $(code).attr("class");
+		$(codeBlock).addClass(syntax);
+	}
+</script>
+{% include animate_on_scroll.html %}

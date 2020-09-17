@@ -1,0 +1,19 @@
+-
+    header: Yaml-heavy customization
+    content: <p>Don't get your hands dirty with HTML + css unless you want to.</p>
+        <p>Most of Sprinkl's options can be edited directly in the main <span class="inline">_config.yml</span> file or
+        in Yaml files under <span class="inline">_data</span></p>
+    snippet: sample_yaml.md
+
+-
+    header: Responsive and interactive
+    content: <p>Sprinkl makes the most of powerful Javascript libraries like
+        <a href="https://michalsnik.github.io/aos/">Animate On Scroll</a> to give your landing page a
+        responsive and modern feel without being cluttered.</p>
+    snippet: sample_javascript.md
+
+-
+    header: Code styling via rouge
+    content: <p>Select a Pygments theme or customize the provided stylesheet yourself to
+        get your code snippets looking and behaving just the way you want them to.</p>
+    snippet: sample_python.md

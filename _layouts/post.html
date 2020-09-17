@@ -1,0 +1,50 @@
+---
+layout: page
+---
+<div class="blog-post text-container">
+	{% include post-title.html post=page %}
+
+	<div class="post-content">
+		{{ content }}
+		{% if page.abstract %}
+			<h3>Abstract</h3>
+			<p class="abstract">{{ page.abstract }}</p>
+		{% endif %}
+		{% if page.full-text %}
+			<div class="button"><a href="{{ page.full-text }}" target="_blank">Read the paper</a></div>
+		{% endif %}
+		{% if page.mybinder %}
+			<a href="{{ page.mybinder }}" target="_blank">
+				<img class="mybinder" src="https://mybinder.org/badge_logo.svg"/>
+			</a>
+		{% endif %}
+
+		<div class="blog-navigation">
+			{% if page.next_in_category.url %}
+				<a class="prev" href="{% include relative-src.html src=page.next_in_category.url %}"><i class="fa fa-arrow-left"></i> {{ page.next_in_category.title }}</a>
+			{% endif %}
+			{% if page.previous_in_category.url %}
+				<a class="next" href="{% include relative-src.html src=page.previous_in_category.url %}">{{ page.previous_in_category.title }} <i class="fa fa-arrow-right"></i></a>
+			{% endif %}
+		</div>
+
+		{% if site.disqus_shortname and page.comments %}
+			<div id="disqus_thread"></div>
+			<script>
+				var disqus_shortname = '{{ site.disqus_shortname }}';
+				var disqus_config = function () {
+					this.page.url = "{{ page.url | prepend: site.url }}";
+					this.page.identifier = "{{ page.id }}";
+				};
+
+				(function() {  // DON'T EDIT BELOW THIS LINE
+					var d = document, s = d.createElement('script');
+					s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+					s.setAttribute('data-timestamp', +new Date());
+					(d.head || d.body).appendChild(s);
+				})();
+			</script>
+			<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+		{% endif %}
+	</div>
+</div>

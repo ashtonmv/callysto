@@ -1,0 +1,41 @@
+links:
+  -
+    - name: Getting started
+      link: /getting-started
+      new_window: false
+      download: false
+    - name: Documentation
+      link: https://pyiron.readthedocs.io/en/latest/
+      new_window: true
+      download: false
+    - name: News
+      link: /news/
+      new_window: false
+      download: false
+  -
+    - name: Imprint
+      link: https://www.mpie.de/impressum
+      new_window: true
+      download: false
+    - name: Privacy Policy
+      link: /privacy
+      new_window: false
+      download: false
+    - name: License
+      link: /license
+      new_window: false
+      download: false
+
+social:
+  -
+    name: Github
+    icon: github-alt
+    link: https://github.com/pyiron
+  -
+    name: Youtube
+    icon: youtube
+    link: https://www.youtube.com/channel/UC9B_3nunpB-u-1gybsw5DHw
+  -
+    name: Stack Overflow
+    icon: stack-overflow
+    link: https://stackoverflow.com/questions/tagged/pyiron

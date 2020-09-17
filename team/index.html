@@ -1,0 +1,78 @@
+---
+title: Team
+description: Meet our team of amazing developers and collaborators.
+full_width: true
+---
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<div class="container">
+	<ul class="developers">
+		{% for person in site.data.core-developers %}
+			<li>
+				<div class="square-image"><img src="{% include relative-src.html src=person.image_path %}" alt="{{ person.name }}"/></div>
+				<div class="name">{{ person.name }}</div>
+				<div class="info">{{ person.position }}</div>
+				<div class="links">
+					{% if person.links.professional %}
+						<a target="_blank" href="{{ person.links.professional }}"><i class="fa fa-user"></i></a>
+					{% endif %}
+					{% if person.links.github %}
+						{% if person.links.professional %}
+							<i> | </i>
+						{% endif %}
+						<a target="_blank" href="https://github.com/{{ person.links.github }}"><i class="fab fa-github-alt"></i></a>
+					{% endif %}
+				</div>
+			</li>
+		{% endfor %}
+	</ul>
+</div>
+
+<!-- Add (invisible) bot accounts to the page so jquery can find them (below) -->
+{% for bot in site.data.github.bots %}
+	<i class="bot" id="{{ bot }}"></i>
+{% endfor %}
+
+<h2 style="padding-top: 40px;"><i class="fa fa-github-alt"></i></h2>
+<h2 style="position: relative; top: -20px;">Github Contributors</h2>
+
+<ul class="developers" id="githubContributors"></ul>
+
+<script>
+	var query = {
+		"url": "https://api.github.com/repos/{{ site.github }}/contributors",
+		"method": "GET",
+		"timeout": 0,
+	};
+
+	$.ajax(query).success(function (response) {
+		for (var i=0; i < response.length; i++) {
+			var username = response[i].login;
+			// Don't list bots
+			if ($("#"+username).length == 0) {
+				$("#githubContributors").append($('<li>', {id: username}));
+				$("#"+username).append($('<a>', {id: username+'Link', href:response[i].html_url}));
+				$("#"+username+"Link").append($('<div>', {class:'name', html: username}));
+				$("#"+username+"Link").append($('<img>', {id: username+"Img", class:'small-image', src: response[i].avatar_url}));
+				$("#"+username).append($('<div>', {class:'info', html: response[i].contributions+" commits"}));
+			};
+		};
+	});
+
+</script>
+
+</div>
+<section class="bottom-cta">
+	<div class="container no-padding">
+		<h2><i class="fa fa-graduation-cap"></i></h2>
+		<h2 style="position: relative; top: -20px;">Alumni</h2>
+		<ul class="developers" id="alumni">
+			{% for alumnus in site.data.alumni %}
+				<li>
+					<div class="name">{{ alumnus.name }}</div>
+					<div class="info">{{ alumnus.contribution }}</div>
+					<div class="info">({{ alumnus.dates }})</div>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+</section>

@@ -1,0 +1,234 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: "Zilla Slab", "Helvetica Neue", "Helvetica", "Arial";
+}
+
+h1, h2, h3, h4, h5 {
+	color: $header-color;
+	font-family: "Comfortaa";
+}
+
+#condaBox {
+	display: none;
+}
+
+.main-logo {
+	height: 180px;
+	width: auto;
+	padding-bottom: 40px;
+}
+
+@media screen and (min-width: 450px) {
+    #condaBox {
+        display: block;
+    }
+}
+
+.inline {
+	background: $header-color;
+	font-family: $mono-font;
+	font-size: 0.8em;
+	border-radius: 2px;
+	color: white;
+	line-height: 30px;
+	padding: 0px 4px;
+}
+
+a {
+	color: $link-color;
+}
+
+a:hover {
+	color: darken($link-color, 20%);
+	cursor: pointer;
+}
+
+img {
+	width: 100%;
+}
+
+h1 strong, h2 strong {
+	font-weight: 700;
+}
+
+h1 {
+	font-weight: 300;
+	font-size: 2.3em;
+	margin: 0;
+}
+
+h2 {
+	font-weight: 300;
+	font-size: 2.2em;
+	margin: 0 0 30px 0;
+}
+
+h3 {
+	margin: 20px 0 10px 0;
+}
+
+p, address {
+	font-size: 1.38em;
+	color: $body-color;
+	margin-bottom: 20px;
+	font-weight: 300;
+	line-height: 1.4em;
+}
+
+.news-item {
+	text-align: center;
+	margin: 0;
+	min-height: 50px;
+	padding: 40px;
+
+	.news-date {
+		color: white;
+		border-radius: 15px;
+		background: $body-color;
+		max-width: 220px;
+		margin: 0 auto;
+	}
+}
+
+
+/**
+* Syntax highlighting styles
+*/
+
+code {
+	font-family: $mono-font;
+	font-size: $code-font-size;
+	text-align: left;
+	margin-right: 0px !important;
+}
+
+.feature {
+	min-width: 150px;
+	max-width: 700px;
+}
+
+.highlight,
+pre.highlight {
+	background: $body-color;
+	border: 2px solid white;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	border-radius: 10px 0px 10px 10px;
+	padding: 0px 20px 0px 20px;
+	color: $text;
+}
+
+.highlight {
+	.highlighter-rouge & {
+		background: transparent;
+	}
+	pre {
+		background: transparent;
+		text-align: left;
+		overflow-x: scroll;
+		margin-right: 0px !important;
+	}
+
+	.hll { background: $base; }
+	.c  { color: $subtle; font-style: italic; }
+	.err { color: $err; }
+	.k  { color: $pink; }
+	.l  { color: $yellow; }
+	.n  { color: $text; }
+	.o  { color: $pink; }
+	.p  { color: $text; }
+	.cm { color: $subtle; font-style: italic; }
+	.cp { color: $subtle; font-style: italic; }
+	.c1 { color: $subtle; font-style: italic; }
+	.cs { color: $subtle; font-style: italic; }
+	.ge { font-style: italic; }
+	.gs { font-weight: 700; }
+	.kc { color: $purple; }
+	.kd { color: $blue; }
+	.kn { color: $blue; }
+	.kp { color: $blue; }
+	.kr { color: $blue; }
+	.kt { color: $blue; }
+	.ld { color: $yellow; }
+	.m  { color: $orange; }
+	.s  { color: $yellow; }
+	.na { color: $text; }
+	.nb { color: $yellow; }
+	.nc { color: $yellow; }
+	.no { color: $yellow; }
+	.nd { color: $yellow; }
+	.ni { color: $yellow; }
+	.ne { color: $yellow; }
+	.nf { color: $text; }
+	.nl { color: $yellow; }
+	.nn { color: $text; }
+	.nx { color: $text; }
+	.py { color: $yellow; }
+	.nt { color: $red; }
+	.nv { color: $yellow; }
+	.ow { font-weight: 700; }
+	.w  { color: $highlight; }
+	.mf { color: $orange; }
+	.mh { color: $orange; }
+	.mi { color: $orange; }
+	.mo { color: $orange; }
+	.sb { color: $yellow; }
+	.sc { color: $yellow; }
+	.sd { color: $yellow; }
+	.s2 { color: $yellow; }
+	.se { color: $purple; }
+	.sh { color: $yellow; }
+	.si { color: $yellow; }
+	.sx { color: $yellow; }
+	.sr { color: $pink; }
+	.s1 { color: $yellow; }
+	.ss { color: $blue; }
+	.bp { color: $yellow; }
+	.vc { color: $yellow; }
+	.vg { color: $yellow; }
+	.vi { color: $red; }
+	.il { color: $orange; }
+	.gu { color: $subtle; }
+	.gd { color: $pink; }
+	.gi { color: $green; }
+}
+
+.highlight::before {
+	color: white;
+	font-family: "Comfortaa";
+	content: "</>";
+	border: 2px solid white;
+	background: $pink;
+	border-radius: 10px 10px 0px 0px;
+	padding: 6px 18px;
+	display: inline-block;
+	position: relative;
+	float: right;
+	overflow: show;
+	top: -34px;
+	right: -22px;
+	text-align: right;
+}
+
+
+.highlight.language-sh::before {
+	content: ".sh";
+}
+
+.highlight.language-yaml::before {
+	content: ".yml";
+	background: $yellow;
+}
+
+.highlight.language-javascript::before {
+	content: ".js";
+	background: $purple;
+}
+
+.highlight.language-python::before {
+	content: ".py";
+	background: $blue;
+}
