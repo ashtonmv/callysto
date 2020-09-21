@@ -62,8 +62,13 @@ nav {
 		}
 	}
 
+	a {
+		color: $body-color;
+	}
+
 	a:hover {
-		border-bottom: 1px solid rgba($purple, .5);
+		color: lighten($body-color, 20%);
+		border-bottom: 1px solid rgba($body-color, .5);
 	}
 
 	@media #{$mid-point} {
@@ -79,8 +84,8 @@ nav {
 	}
 
 	a.active {
-		color: darken($link-color, 20%);
-		border-bottom: 1px solid rgba($link-color,.5);
+		color: lighten($body-color, 20%);
+		border-bottom: 1px solid rgba($body-color, .5);
 	}
 
 }

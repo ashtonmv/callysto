@@ -126,7 +126,7 @@
 		transition: .2s ease-in-out;
 
 		&:hover {
-			color:$body-color;
+			background: rgba($pink, 0.8);
 			text-decoration: none;
 		}
 	}

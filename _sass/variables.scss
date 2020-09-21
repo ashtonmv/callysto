@@ -14,7 +14,7 @@ $header-font: "Comfortaa";
 $header-color: $purple;
 $body-font: "Zilla Slab";
 $body-color: darken($purple, 40%);
-$link-color: $purple;
+$link-color: lighten($purple, 10%);
 $mono-font: "Space Mono";
 
 // Breakpoints

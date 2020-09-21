@@ -2,8 +2,8 @@
   link: /team
   new_window: false
   highlight: false
-- name: Collaborators
-  link: /collaborators
+- name: Sponsors
+  link: /sponsors/
   new_window: false
   highlight: false
 - name: Publications

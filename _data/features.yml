@@ -6,7 +6,7 @@
     snippet: sample_yaml.md
 
 -
-    header: Responsive and interactive
+    header: Responsive, interactive elements
     content: <p>Sprinkl makes the most of powerful Javascript libraries like
         <a href="https://michalsnik.github.io/aos/">Animate On Scroll</a> to give your landing page a
         responsive and modern feel without being cluttered.</p>
