@@ -53,7 +53,7 @@
   
 .closebtn {
 	margin-left: 15px;
-	color: $link-color;
+	color: lighten($yellow, 10%);
 	float: right;
 	cursor: pointer;
 }
