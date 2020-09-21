@@ -44,10 +44,8 @@
 
 .alert {
 	padding: 20px;
-	background-color: rgba(255, 255, 255, 0.8);
-	border-top: 2px solid $pink;
-	border-bottom: 2px solid $pink;
-	color: $pink;
+	background-color: $pink;
+	color: $white;
 	margin-bottom: 15px;
 	font-weight: bold;
 	font-size: 22px;
