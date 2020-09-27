@@ -1,6 +1,6 @@
 {% highlight yaml %}
 title: callysto
-github: ashtonmv/callysto_theme
+github: ashtonmv/callysto
 alert: 'I'm here for your cookies!'
 url: michael-ashton.com/callysto
 baseurl: /
