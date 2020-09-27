@@ -5,7 +5,7 @@ links:
       new_window: false
       download: false
     - name: Documentation
-      link: https://pyiron.readthedocs.io/en/latest/
+      link: https://callysto.readthedocs.io/en/latest/
       new_window: true
       download: false
     - name: News
@@ -30,12 +30,12 @@ social:
   -
     name: Github
     icon: github-alt
-    link: https://github.com/pyiron
+    link: https://github.com/ashtonmv/callysto
   -
     name: Youtube
     icon: youtube
-    link: https://www.youtube.com/channel/UC9B_3nunpB-u-1gybsw5DHw
+    link: https://www.youtube.com/lightroast
   -
     name: Stack Overflow
     icon: stack-overflow
-    link: https://stackoverflow.com/questions/tagged/pyiron
+    link: https://stackoverflow.com/questions/tagged/callysto

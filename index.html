@@ -1,50 +1,55 @@
 ---
-layout: home
-description: A delightful landing page for delightful apps.
+title:
+description:
 ---
+
 <section class="hero">
-		<header>
-			<div class="container max-container no-padding">
-				{% include navigation.html %}
-			</div>
-		</header>
-		{% if site.alert %}
+	{% if site.alert %}
 		<div class="alert">
-			<span class="closebtn" onclick="this.parentElement.style.display='none';">okay I believe you.</span>
+			<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
 			{{ site.alert }}
 		</div>
 	{% endif %}
-	<div class="overlay">
-		<img class="main-logo" src="images/logo.png"></img>
-		<div class="text-container">
-			<h1 class="page-description"><strong>{{ page.description }}</strong></h1>
-			<div class="cta button alt"><a href="https://github.com/ashtonmv/sprinkl_theme" target="_blank">Get Sprinkl</a></div>
-			{% include sample_shell.md %}
-			<div>
-				<img src="{{ 'images/screenshot.png' | relative_url }}" alt="Screenshot" class="screenshot editable" data-aos="fade-up"/>
+	<img class="main-logo" src="{{ 'images/logo.png' | relative_url }}"></img>
+	<div class="text-container">
+		<h1 class="page-description">Bring your documentation to life.</h1>
+		<div class="cta button alt"><a href="{{ site.github }}" target="_blank">Get Callysto</a></div>
+		<div style="width: 100%; display: flex; justify-content: center;">
+			<div class="highlight language-sh" id="condaBox">
+				<div style="padding: 25px 35px 25px 0px;">
+					<code id="condaInstall"></code>
+				</div>
+			</div>
+		</div>
+		<div style="width: 100%;">
+			<div id="screenshot" data-aos="fade-up" data-aos-offset="3000">
+				<img src="{{ site.baseurl }}/images/dashboard.png" alt="Screenshot" class="screenshot editable" data-aos="fade-up" data-aos-offset="-300"/>
 			</div>
 		</div>
 	</div>
 </section>
 
-<div class="content no-padding">
-
+<div class="content">
 	{% assign text-left = true %}
 	{% for feature in site.data.features %}
 		{% if text-left %}
 			{% assign text-aos = "fade-right" %}
-			{% assign code-aos = "fade-left" %}
+			{% assign image-aos = "fade-left" %}
 		{% else %}
 			{% assign text-aos = "fade-left" %}
-			{% assign code-aos = "fade-right" %}
+			{% assign image-aos = "fade-right" %}
 		{% endif %}
 		<section>
-			<div class="container flex" {% unless text-left %}style="flex-direction: row-reverse;"{% endunless %}>
+
+			<div class="container flex no-padding" {% unless text-left %}style="flex-direction: row-reverse;"{% endunless %}>
 				<div class="text editable" data-aos="{{ text-aos }}" data-aos-offset="300">
 					<h2>{{ feature.header }}</h2>
 					{{ feature.content }}
 				</div>
-				<div class="feature" data-aos="{{ code-aos }}" data-aos-offset="300">
+				<img class="feature-icon" src="{{ feature.icon | relative_url }}" data-aos="{{ image-aos }}" data-aos-offset="330"/>
+			</div>
+			<div class="container flex" style="justify-content: center;">
+				<div class="feature" data-aos="fade-up" data-aos-offset="100">
 					{% include {{ feature.snippet }} %}
 				</div>
 			</div>
@@ -56,30 +61,35 @@ description: A delightful landing page for delightful apps.
 		{% endif %}
 	{% endfor %}
 
-	<div class="text-container" style="text-align: center; padding-bottom:20px;">
+	<div id="news" class="text-container" style="text-align: center;">
 		<h1>Latest News</h1>
 		<hr>
 	</div>
 	<div class="container flex">
 	{% assign news_icons = "releases, workshops, documentation, milestones" | split: ', ' %}
+	{% assign i = 1 %}
 	{% for post in site.categories.news limit:3 %}
 		<div class="news-card"
+		{% if i == 1 %} data-aos="fade-right"
+		{% elsif i == 2 %} data-aos="zoom-in"
+		{% elsif i == 3 %} data-aos="fade-left"
+		{% endif %} data-aos-offset="100"
 		{% if news_icons contains post.categories[1] %}
-			style="background-image: url(/images/news-icon-{{ post.categories[1] }}.png)"
+			style="background-image: url({{ site.baseurl }}/images/news-icon-{{ post.categories[1] }}.png)"
 		{% else %}
-			style="background-image: url(/images/news-icon-default.png)"
+			style="background-image: url({{ site.baseurl }}/images/news-icon-default.png)"
 		{% endif %}
 			>
 		<h3 style="color: {{ site.colors.main }}">{{ post.date | date: "%b %d, %Y"  }}</h3>
 		<p>
-		<a href="{{ post.url }}">
+		<a href="{{ post.url | relative_url }}">
 			{{ post.title }}
 		</a>
 			<div class="post-details">
 				{% for category in post.categories %}
 					{% if category != "news" %}
 						<span class="blog-filter">
-							<a href="{{ site.baseurl }}/category/{{ category | slugify }}/">
+							<a href="{{ site.baseurl }}/news#category={{ category | slugify }}">
 								{{ category }}
 							</a>
 						</span>
@@ -88,28 +98,17 @@ description: A delightful landing page for delightful apps.
 			</div>
 		</p>
 		</div>
+		{% assign i = i | plus: 1 %}
 	{% endfor %}
 	</div>
 	<section class="bottom-cta">
-		<h2 class="editable">Sprinkl your landing page with some <strong>love</strong>.</h2>
+		<h2 class="editable">Callysto revolves around <strong>Jupyter</strong>.</h2>
 		<p>
-		<div class="button alt"><a href="https://github.com/pyiron/pyiron" target="_blank">Get Sprinkl</a></div>
-		</p><br>
-		<p>
-		<div class="button"><a href="https://mybinder.org/v2/gh/pyiron/pyiron/master" target="_blank">Live Demo</a></div>
+		<div class="button alt"><a href="{{ site.github }}" target="_blank">Learn more about Jupyter</a></div>
 		</p>
 	</section>
 </div>
 
-<script>
-	// Create those little tabs on the upper right corners of
-	// code snippets
-	for (var i=0; i<$(".highlight").length; i++) {
-		var codeBlock = $(".highlight")[i];
-		var pre = $(codeBlock).find("pre").first();
-		var code = $(pre).find("code").first();
-		var syntax = $(code).attr("class");
-		$(codeBlock).addClass(syntax);
-	}
-</script>
+{% include typewrite.html %}
 {% include animate_on_scroll.html %}
+{% include juniper.html %}

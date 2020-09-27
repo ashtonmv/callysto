@@ -1,14 +1,15 @@
 # ----
 # Site
 
-title: Sprinkl
-github: ashtonmv/sprinkl_theme
+title: Callysto
+github: ashtonmv/callysto
 alert: "We promise not to steal your cookies!"
-url: michael-ashton.com/sprinkl
+url: michael-ashton.com/callysto
 baseurl:
+installation: gem install callysto
 
-email: sprinkl@gmail.com
-formspree: https://formspree.io/sprinkl@gmail.com
+email: callysto@gmail.com
+formspree: https://formspree.io/callysto@gmail.com
 copyright: Michael Ashton
 
 google_analytics_key:
@@ -16,8 +17,8 @@ google_maps_javascript_api_key:
 disqus_shortname:
 
 # Values for the jekyll-seo-tag gem (https://github.com/jekyll/jekyll-seo-tag)
-logo: /siteicon.png
-description: An interactive development environment (IDE) for computational materials science.
+logo: /images/logo.png
+description:
 author:
   name:
   email:

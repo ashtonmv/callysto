@@ -34,7 +34,7 @@ footer {
 	padding: 50px 0 20px 0;
 	font-size: 1.1em;
 	position: relative;
-	background: url("../images/sprinkl_bg.png");
+	background: $purple;
 	background-size: cover;
 
 	.social {
@@ -55,6 +55,7 @@ footer {
 	}
 
 	.copyright {
+		color: white;
 		font-size: .8em;
 		margin: 0 auto;
 		padding-top: 30px;
@@ -77,6 +78,7 @@ footer {
 	}
 
 	a {
+		color: white;
 		text-decoration: none;
 	}
 

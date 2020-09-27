@@ -1,29 +1,37 @@
+html {
+	background: $main-color;
+}
+
 html, body {
 	margin: 0;
 	padding: 0;
 }
 
 body {
-	font-family: "Zilla Slab", "Helvetica Neue", "Helvetica", "Arial";
+	font-family: $body-font;
 }
 
 h1, h2, h3, h4, h5 {
-	color: $header-color;
-	font-family: "Comfortaa";
-}
-
-.page-description {
-	color: $body-color;
+	font-family: $header-font;
 }
 
 #condaBox {
-	display: none;
+	width: 480px;
+	min-height: 78px;
+	background: rgba(0, 0, 0, 0.5);
 }
 
 .main-logo {
-	height: 180px;
-	width: auto;
+	height: 180px !important;
+	width: 180px !important;
 	padding-bottom: 40px;
+}
+
+.four-zero-four {
+	text-align: center;
+	img {
+		width: 250px;
+	}
 }
 
 @media screen and (min-width: 450px) {
@@ -33,24 +41,18 @@ h1, h2, h3, h4, h5 {
 }
 
 .inline {
-	background: $header-color;
-	font-family: $mono-font;
-	font-size: 0.8em;
-	border-radius: 2px;
+	background: $main-color;
 	color: white;
 	line-height: 30px;
-	padding: 0px 4px;
+	padding: 1px 4px 1px 4px;
 }
 
 a {
-	color: $link-color;
+	color: $secondary-color;
 	text-decoration: none;
-	transition: all 0.2s ease-in-out;
 }
 
 a:hover {
-	color: darken($link-color, 20%);
-	transition: all 0.2s ease-in-out;
 	text-decoration: none;
 	cursor: pointer;
 }
@@ -81,7 +83,7 @@ h3 {
 
 p, address {
 	font-size: 1.38em;
-	color: $body-color;
+	color: $main-color;
 	margin-bottom: 20px;
 	font-weight: 300;
 	line-height: 1.4em;
@@ -96,7 +98,7 @@ p, address {
 	.news-date {
 		color: white;
 		border-radius: 15px;
-		background: $body-color;
+		background: $secondary-color;
 		max-width: 220px;
 		margin: 0 auto;
 	}
@@ -110,33 +112,178 @@ p, address {
 code {
 	font-family: $mono-font;
 	font-size: $code-font-size;
-	text-align: left;
 	margin-right: 0px !important;
 }
 
 .feature {
-	min-width: 150px;
-	max-width: 700px;
+	width: 100%;
+	height: 100%;
 }
 
-.highlight,
-pre.highlight {
-	background: $body-color;
+.feature-icon {
+	display: none;
+}
+
+@media (min-width: 750px) {
+	.feature-icon {
+		display: inline-block;
+		width: 250px;
+		height: 250px;
+		position: relative;
+		padding: 0px 20px;
+	}
+}
+
+.overlay {
+	background: rgba(255, 255, 255, 0.7);
+}
+
+.cursor {
+    border-right: 0.1em solid white;
+}
+
+.juniper-button {
+	background: $secondary-color;
+	color: white;
+	border-radius: 8px 8px 0px 0px;
+	padding: 8px 16px;
+	border: none;
+	position: absolute;
+	top: -47px;
+	right: 0px;
+	transition: all 0.1s ease-in-out;
+
+	&:hover {
+		cursor: pointer;
+		top: -50px;
+		transition: all 0.1s ease-in-out;
+	}
+
+	&.running {
+		background: $yellow;
+		color: $main-color;
+	}
+
+	&.finished {
+		background: $green;
+		color: $main-color;
+	}
+
+	&.errored {
+		background: $red;
+		color: white;
+	}
+
+}
+
+.juniper-cell {
+	border: $main-color;
+}
+
+.juniper-input {
+	margin: 10px 20px;
+	overflow-x: scroll;
+}
+
+.juniper-output {
+	background: white;
+	color: $main-color;
+	border: 2px solid $code-background;
+	border-top: none;
+	border-radius: 0px 0px 8px 8px;
+	height: auto;
+	min-height: 30px;
+	max-height: 500px;
+	overflow: scroll;
+}
+
+.CodeMirror {
+	padding: 0px !important;
+}
+
+.cm-s-monokai {
+	font-size: 1.2em;
+	line-height: 1.5em;
+	font-family: $mono-font;
+	letter-spacing: 0.3px;
+	word-spacing: 1px;
+	background: $code-background;
+	color: white;
+
+	.CodeMirror-lines {
+		padding: 8px 0;
+	}
+	.CodeMirror-gutters {
+		box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+		-webkit-box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+		background-color: $code-background;
+		padding-right: 10px;
+		z-index: 3;
+		border: none;
+	}
+	div.CodeMirror-cursor {
+		border-left: 8px solid white;
+	}
+	.CodeMirror-activeline-background {
+		background: #49483E;
+	}
+	.CodeMirror-selected {
+		background: lighten($code-background, 10%);
+	}
+	.cm-comment {
+		color: lighten($pink, 20%);
+	}
+	.cm-string {
+		color: $yellow;
+	}
+	.cm-number {
+		color: lighten($blue, 10%);
+	}
+	.cm-atom {
+		color: $blue;
+	}
+	.cm-keyword {
+		color: $body-color;
+	}
+	.cm-variable {
+		color: $pink;
+	}
+	.cm-def {
+		font-style: italic;
+		color: lighten($blue, 10%);
+	}
+	.cm-variable-2 {
+		color: $red;
+	}
+	.cm-property {
+		color: darken($blue, 10%);
+	}
+	.cm-operator {
+		color: $body-color;
+	}
+	.CodeMirror-linenumber {
+		color: $gray;
+	}
+}
+
+pre {
+	overflow-x: scroll;
+}
+
+.highlight + .highlight {
+	margin-top: 40px;
+}
+
+div.highlight, figure.highlight {
 	border: 2px solid white;
-	border-radius: 10px 0px 10px 10px;
-	padding: 0px 20px 0px 20px;
-	color: $text;
+	color: white;
+	width: auto;
 }
 
 .highlight {
-	.highlighter-rouge & {
-		background: transparent;
-	}
+
 	pre {
 		background: transparent;
-		text-align: left;
-		overflow-x: scroll;
-		margin-right: 0px !important;
 	}
 
 	.hll { background: $base; }
@@ -203,39 +350,46 @@ pre.highlight {
 	.gi { color: $green; }
 }
 
-.highlight::before {
+// figure.highlight {
+// 	border-radius: 8px 0px 10px 10px;
+// 	background: $main-color;
+// 	color: white;
+// }
+
+.highlight {
+	border-radius: 0px 0px 10px 10px;
+	background: $code-background;
 	color: white;
-	font-family: $header-font;
-	content: "</>";
+
+	pre {
+		padding: 0px 25px;
+		font-size: 1em;
+		line-height: 1.5em;
+		font-family: $mono-font;
+		letter-spacing: 0.3px;
+		word-spacing: 1px;
+	}
+}
+
+.tab {
+	color: white;
+	font-family: $mono-font;
+	background: $code-background;
 	border: 2px solid white;
-	background: $pink;
-	border-radius: 10px 10px 0px 0px;
-	padding: 6px 18px;
+	border-radius: 8px 8px 0px 0px;
+	padding: 2px 10px;
 	display: inline-block;
 	position: relative;
-	float: right;
+	float: left;
+	top: -32px;
+	left: -2px;
 	overflow: show;
-	top: -34px;
-	right: -22px;
 	text-align: right;
 }
 
-
-.highlight.language-sh::before {
-	content: ".sh";
-}
-
-.highlight.language-yaml::before {
-	content: ".yml";
-	background: $yellow;
-}
-
-.highlight.language-javascript::before {
-	content: ".js";
-	background: $purple;
-}
-
-.highlight.language-python::before {
-	content: ".py";
-	background: $blue;
+#condaBox {
+	.tab {
+		color: $main-color;
+		background:white;
+	}
 }

@@ -1,3 +1,3 @@
 {% highlight sh %}
-gem install sprinkl
+gem install callysto
 {% endhighlight %}

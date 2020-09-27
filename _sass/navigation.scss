@@ -63,12 +63,12 @@ nav {
 	}
 
 	a {
-		color: $body-color;
+		color: white;
 	}
 
 	a:hover {
-		color: lighten($body-color, 20%);
-		border-bottom: 1px solid rgba($body-color, .5);
+		color: lighten($pink, 10%);
+		border-bottom: 1px solid rgba($pink, .5);
 	}
 
 	@media #{$mid-point} {

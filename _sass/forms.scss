@@ -13,12 +13,12 @@
 }
 
 .button.alt a {
-	background: $pink;
-	color: white;
+	background: white;
+	color: $pink;
 }
 
 .button.alt a:hover {
-	background: rgba($pink, 0.8);
+	background: rgba(white, 0.8);
 }
 
 .button.alt.small a{

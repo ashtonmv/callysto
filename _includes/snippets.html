@@ -1,0 +1,56 @@
+<script>
+
+    // Add syntax tab label to non-interactive snippets,
+    // like the .sh tab on the homepage's conda install snippet
+    var tabLabels = {
+        "python": ".py",
+        "sh": ".sh",
+    }
+
+    for (var i=0; i<$(".highlight").length; i++) {
+        var snippet = $(".highlight")[i];
+        var syntax = "";
+
+        // catches normal code snippets
+        if ($(snippet).parent().hasClass("highlighter-rouge")) {
+            var classes = $(snippet).parent().attr("class").split(" ");
+        }
+
+        // catches the conda install box and any other "manually"
+        // added snippets
+        else {
+            var classes = $(snippet).attr("class").split(" ");
+        }
+
+        for (var j=0; j < classes.length; j++) {
+            if (classes[j].includes("language")) {
+                syntax = classes[j].replace("language-", "");
+            }
+        }
+
+        var uniqueId = "tab"+i;
+        $(snippet).prepend("<div class='tab' id='" + uniqueId + "'></div>");
+
+        if (syntax in tabLabels) {
+            $("#"+uniqueId).text(tabLabels[syntax]);
+        } else {
+            $("#"+uniqueId).html("<i class='fas fa-code'></>");
+        }
+
+        $("#"+uniqueId).click(function(){ renderCells(); });
+    }
+
+</script>
+
+<script>
+    function renderCells() {
+        var juniper = new Juniper({
+            url: "{{ site.data.juniper.url }}",
+            repo: "{{ site.data.juniper.repo }}",
+            theme: "{{ site.data.juniper.theme }}",
+            useStorage: "{{ site.data.juniper.useStorage }}",
+            isolateCells: "{{ site.data.juniper.isolateCells }}",
+            msgLoading: "{{ site.data.juniper.msgLoading }}",
+        })
+    }
+</script>

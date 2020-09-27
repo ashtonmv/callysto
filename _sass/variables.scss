@@ -10,12 +10,16 @@ $pink:       hsl(336, 100%, 69%);
 @import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
 
+$main-color: $purple;
+$secondary-color: $pink;
 $header-font: "Comfortaa";
 $header-color: $purple;
 $body-font: "Zilla Slab";
 $body-color: darken($purple, 40%);
 $link-color: lighten($purple, 10%);
 $mono-font: "Space Mono";
+$code-background: $purple;
+$gray: rgba(200, 200, 200, 1);
 
 // Breakpoints
 $tablet: "(min-width: 450px)";
