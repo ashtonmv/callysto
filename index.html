@@ -65,7 +65,7 @@ description:
 		<hr>
 	</div>
 	<div class="container flex">
-	{% assign news_icons = "releases, workshops, documentation, milestones" | split: ', ' %}
+	{% assign news_icons = "releases, milestones" | split: ', ' %}
 	{% assign i = 1 %}
 	{% for post in site.categories.news limit:3 %}
 		<div class="news-card"

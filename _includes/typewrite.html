@@ -1,9 +1,8 @@
 <script>
 
-    $( document ).load(function() {
-        $("#footer").hide();
-        $("#content").hide();
-    });
+    window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+    }
 
     $( document ).ready(function() {
         Typer = new TxtType($("#condaInstall"), "", "{{ site.installation }}");
@@ -31,10 +30,10 @@
 			this.el.html(htmlContent);
 
             setTimeout(function() {
-                $("#screenshot").attr("data-aos-offset", "-300px");
+                $("#screenshot").attr("data-aos-offset", "-3000px");
                 $("#content").show();
                 $("#footer").show();
-                $("#content").attr("data-aos-offset", "-300px");
+                $("#content").attr("data-aos-offset", "-3000px");
                 AOS.init({
                     offset: 300, // offset (in px) from the original trigger point
                     duration: 1000, // values from 0 to 3000, with step 50ms
@@ -53,6 +52,16 @@
                 $("#condaBox").css("transition", "all 1.5s ease-in-out");
                 $("#condaBox").css("background", bgColor);
             }, 280);
+
+            new Juniper({
+                    url: "{{ site.data.juniper.url }}",
+                    repo: "{{ site.data.juniper.repo }}",
+                    theme: "{{ site.data.juniper.theme }}",
+                    useStorage: "{{ site.data.juniper.useStorage }}",
+                    isolateCells: "{{ site.data.juniper.isolateCells }}",
+                    msgLoading: "{{ site.data.juniper.msgLoading }}",
+                    noAutoInit: false
+                });
 
 			return;
         };
