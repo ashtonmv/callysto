@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<link rel="stylesheet" href="{{ site.baseurl }}/css/screen.css">
-		<link rel="stylesheet" href="https://raw.githubusercontent.com/mojombo/tpw/master/css/syntax.css">
+		<!-- <link rel="stylesheet" href="https://raw.githubusercontent.com/mojombo/tpw/master/css/syntax.css"> -->
 		<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 
 
@@ -24,14 +24,15 @@
 		{% endif %}
 	</head>
 	<body>
-		<header>
-			<div class="container max-container no-padding">
-				{% if page.url != "/" %}
-					<div class="company-name"><a href="{{ site.baseurl }}/"><img src="{{ site.baseurl }}/images/logo.png" alt="pyiron Logo" width="100" height="100"/></a></div>
-				{% endif %}
-				{% include navigation.html %}
-			</div>
-		</header>
+		{% if page.url != "/" %}
+			<header>
+				<div class="container max-container no-padding">
+						<div class="company-name"><a href="{{ site.baseurl }}/"><img src="{{ site.baseurl }}/images/logo.png" alt="pyiron Logo" width="100" height="100"/></a></div>
+						{% include navigation.html %}
+				</div>
+			</header>
+		{% endif %}
+
 		{{ content }}
 		<footer>
 			<div class="container no-padding">

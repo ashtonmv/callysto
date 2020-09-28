@@ -66,14 +66,15 @@ header {
 }
 
 .screenshot{
-	max-width: 100%;
-	height: auto;
-	display: block;
+	width: 100%;
+	max-width: 1000px;
+	display: inline-block;
 	border-radius: 2px;
+	margin-bottom: 0px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 50px;
 	position: relative;
+	top: 4px;
 }
 
 section {

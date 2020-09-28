@@ -1,5 +1,5 @@
 html {
-	background: $main-color;
+	background: linear-gradient(180deg, lighten($main-color, 5%) 0%, darken($main-color, 10%) 20%);
 }
 
 html, body {
@@ -16,15 +16,27 @@ h1, h2, h3, h4, h5 {
 }
 
 #condaBox {
-	width: 480px;
+	width: 300px;
 	min-height: 78px;
-	background: rgba(0, 0, 0, 0.5);
+	background: white;
+	color: black;
+	z-index: 1;
+	border-radius: 0px 10px 10px 10px;
+	margin-top: 50px;
+
+	.tab {
+		color: $main-color;
+		background: white;
+		padding: 4px 10px;
+		left: -2px;
+	}
 }
 
 .main-logo {
 	height: 180px !important;
 	width: 180px !important;
 	padding-bottom: 40px;
+	padding-top: 150px;
 }
 
 .four-zero-four {
@@ -44,15 +56,17 @@ h1, h2, h3, h4, h5 {
 	background: $main-color;
 	color: white;
 	line-height: 30px;
+	border-radius: 4px;
 	padding: 1px 4px 1px 4px;
 }
 
 a {
-	color: $secondary-color;
+	color: $link-color;
 	text-decoration: none;
 }
 
 a:hover {
+	color: darken($link-color, 5%);
 	text-decoration: none;
 	cursor: pointer;
 }
@@ -146,27 +160,29 @@ code {
 	background: $secondary-color;
 	color: white;
 	border-radius: 8px 8px 0px 0px;
-	padding: 8px 16px;
+	padding: 8px 16px 16px 16px;
+	z-index: -1;
 	border: none;
 	position: absolute;
 	top: -47px;
 	right: 0px;
-	transition: all 0.1s ease-in-out;
+	transition: all 0.15s ease-in-out;
 
 	&:hover {
 		cursor: pointer;
+		background: darken($secondary-color, 5%);
 		top: -50px;
-		transition: all 0.1s ease-in-out;
+		transition: all 0.15s ease-in-out;
 	}
 
 	&.running {
 		background: $yellow;
-		color: $main-color;
+		color: black;
 	}
 
 	&.finished {
 		background: $green;
-		color: $main-color;
+		color: black;
 	}
 
 	&.errored {
@@ -201,13 +217,13 @@ code {
 	padding: 0px !important;
 }
 
-.cm-s-monokai {
+.cm-s-callysto {
 	font-size: 1.2em;
 	line-height: 1.5em;
 	font-family: $mono-font;
 	letter-spacing: 0.3px;
 	word-spacing: 1px;
-	background: $code-background;
+	background: none;
 	color: white;
 
 	.CodeMirror-lines {
@@ -243,7 +259,7 @@ code {
 		color: $blue;
 	}
 	.cm-keyword {
-		color: $body-color;
+		color: lighten($purple, 10%);
 	}
 	.cm-variable {
 		color: $pink;
@@ -256,7 +272,7 @@ code {
 		color: $red;
 	}
 	.cm-property {
-		color: darken($blue, 10%);
+		color: lighten($blue, 10%);
 	}
 	.cm-operator {
 		color: $body-color;
@@ -270,7 +286,7 @@ pre {
 	overflow-x: scroll;
 }
 
-.highlight + .highlight {
+.highlight {
 	margin-top: 40px;
 }
 
@@ -357,7 +373,7 @@ div.highlight, figure.highlight {
 // }
 
 .highlight {
-	border-radius: 0px 0px 10px 10px;
+	border-radius: 10px;
 	background: $code-background;
 	color: white;
 
@@ -372,24 +388,16 @@ div.highlight, figure.highlight {
 }
 
 .tab {
+	z-index: -1;
 	color: white;
 	font-family: $mono-font;
 	background: $code-background;
-	border: 2px solid white;
 	border-radius: 8px 8px 0px 0px;
-	padding: 2px 10px;
+	padding: 6px 12px;
 	display: inline-block;
 	position: relative;
 	float: left;
 	top: -32px;
-	left: -2px;
 	overflow: show;
 	text-align: right;
-}
-
-#condaBox {
-	.tab {
-		color: $main-color;
-		background:white;
-	}
 }

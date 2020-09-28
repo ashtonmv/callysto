@@ -16,17 +16,18 @@
 
             this.txt = this.endTxt.substring(0, this.txt.length + 1);
 
-            var htmlContent = this.txt.replace("install", "<span class='nb'>install</span>");
-            htmlContent = htmlContent.replace("callysto", "<span class='kt'>callysto</span>");
+            var htmlContent = this.txt.replace("gem", "<span class='kc'>gem</span>");
+            htmlContent = htmlContent.replace("callysto", "<span class='o'>callysto</span>");
 
             this.el.html('<span class="wrap cursor" id="wrap">'+htmlContent+'</span>');
         } else {
-            var htmlContent = this.txt.replace("install", "<span class='nb'>install</span>");
-            htmlContent = htmlContent.replace("callysto", "<span class='kt'>callysto</span>");
+            var htmlContent = this.txt.replace("gem", "<span class='kc'>gem</span>");
+            htmlContent = htmlContent.replace("callysto", "<span class='o'>callysto</span>");
 			this.el.html(htmlContent);
 
             setTimeout(function() {
                 $("#screenshot").attr("data-aos-offset", "-300px");
+                $("#content").attr("data-aos-offset", "-300px");
                 AOS.init({
                     offset: 300, // offset (in px) from the original trigger point
                     duration: 1000, // values from 0 to 3000, with step 50ms

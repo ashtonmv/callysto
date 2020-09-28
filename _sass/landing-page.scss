@@ -30,10 +30,8 @@
 
 .hero {
 	// color: #ffffff;
+	height: 100%;
 	text-align: center;
-	background: $purple;
-	background-size: cover;
-	background-attachment: fixed;
 	padding-top: 0px;
 }
 
@@ -51,6 +49,11 @@
 	margin-left: 15px;
 	float: right;
 	cursor: pointer;
+}
+
+.page-description {
+	margin-top: 50px;
+	color: $purple;
 }
 
 .news-card{

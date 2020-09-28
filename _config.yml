@@ -3,7 +3,7 @@
 
 title: Callysto
 github: ashtonmv/callysto
-alert: "We promise not to steal your cookies!"
+alert:
 url: michael-ashton.com/callysto
 baseurl:
 installation: gem install callysto

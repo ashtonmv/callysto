@@ -1,6 +1,6 @@
-$red:        hsl(0, 100%, 30%);
+$red:        hsl(0, 100%, 64%);
 $orange:     hsl(21, 100%, 50%);
-$yellow:     hsl(41, 100%, 63%);
+$yellow:     hsl(49, 100%, 70%);
 $green:      hsl(98, 64%, 68%);
 $blue:       hsl(199, 100%, 74%);
 $purple:     hsl(243, 60%, 60%);
@@ -16,7 +16,7 @@ $header-font: "Comfortaa";
 $header-color: $purple;
 $body-font: "Zilla Slab";
 $body-color: darken($purple, 40%);
-$link-color: lighten($purple, 10%);
+$link-color: $pink;
 $mono-font: "Space Mono";
 $code-background: $purple;
 $gray: rgba(200, 200, 200, 1);
@@ -33,7 +33,7 @@ $syntax-saturation: 100%;
 $syntax-brightness: 95%;
 
 $base: darken($purple, 5%);
-$text: hsl($syntax-hue, $syntax-saturation, $syntax-brightness);
+$text: white;
 $subtle: hsl($syntax-hue, $syntax-saturation, 80%);
 $highlight: hsl($syntax-hue, $syntax-saturation, 100%);
 $err: $red;

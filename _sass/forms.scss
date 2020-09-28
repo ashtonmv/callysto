@@ -3,7 +3,7 @@
 	text-decoration: none;
 	padding: 16px 50px;
 	background: $link-color;
-	border-radius: 30px;
+	border-radius: 8px;
 	transition: .2s ease-in-out;
 }
 
@@ -13,12 +13,12 @@
 }
 
 .button.alt a {
-	background: white;
-	color: $pink;
+	background: $pink;
+	color: white;
 }
 
 .button.alt a:hover {
-	background: rgba(white, 0.8);
+	background: darken($pink, 5%);
 }
 
 .button.alt.small a{

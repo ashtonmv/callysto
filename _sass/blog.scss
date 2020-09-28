@@ -126,7 +126,7 @@
 		transition: .2s ease-in-out;
 
 		&:hover {
-			background: rgba($pink, 0.8);
+			background: darken($pink, 5%);
 			text-decoration: none;
 		}
 	}
