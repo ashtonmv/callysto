@@ -1,5 +1,5 @@
 html {
-	background: $main-color;
+	background: linear-gradient(180deg, lighten($main-color, 5%) 0%, darken($main-color, 10%) 20%);
 }
 
 html, body {
