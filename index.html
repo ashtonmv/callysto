@@ -41,14 +41,14 @@ description:
 		<section>
 
 			<div class="container flex no-padding" {% unless text-left %}style="flex-direction: row-reverse;"{% endunless %}>
-				<div class="text editable" data-aos="{{ text-aos }}" data-aos-offset="300">
+				<div class="text editable" data-aos="{{ text-aos }}" data-aos-offset="200">
 					<h2>{{ feature.header }}</h2>
 					{{ feature.content }}
 				</div>
-				<img class="feature-icon" src="{{ feature.icon | relative_url }}" data-aos="{{ image-aos }}" data-aos-offset="330"/>
+				<img class="feature-icon" src="{{ feature.icon | relative_url }}" data-aos="{{ image-aos }}" data-aos-offset="230"/>
 			</div>
 			<div class="container flex" style="justify-content: center;">
-				<div class="feature" data-aos="fade-up" data-aos-offset="100">
+				<div class="feature" data-aos="fade-up" data-aos-offset="0">
 					{% include {{ feature.snippet }} %}
 				</div>
 			</div>
@@ -72,7 +72,7 @@ description:
 		{% if i == 1 %} data-aos="fade-right"
 		{% elsif i == 2 %} data-aos="zoom-in"
 		{% elsif i == 3 %} data-aos="fade-left"
-		{% endif %} data-aos-offset="100"
+		{% endif %} data-aos-offset="0"
 		{% if news_icons contains post.categories[1] %}
 			style="background-image: url({{ site.baseurl }}/images/news-icon-{{ post.categories[1] }}.png)"
 		{% else %}
