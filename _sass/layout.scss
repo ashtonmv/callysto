@@ -160,7 +160,7 @@ blockquote:before {
 				h2 {
 					display: table-cell; 
 					vertical-align: middle; 
-					color: white;
+					color: $main-color;
 				}
 
 				img {
@@ -192,7 +192,6 @@ blockquote:before {
 
 					h2 {
 						display: none;
-						color: white;
 						text-align: center;
 						// font-size: 28px;
 						padding: 10px;

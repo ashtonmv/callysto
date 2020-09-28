@@ -67,7 +67,7 @@ nav {
 	}
 
 	a:hover {
-		color: lighten($pink, 10%);
+		color: lighten($link-color, 10%);
 		border-bottom: 1px solid rgba($pink, .5);
 	}
 
@@ -84,8 +84,8 @@ nav {
 	}
 
 	a.active {
-		color: lighten($body-color, 20%);
-		border-bottom: 1px solid rgba($body-color, .5);
+		color: lighten($link-color, 10%);
+		border-bottom: 1px solid rgba($link-color, .5);
 	}
 
 }

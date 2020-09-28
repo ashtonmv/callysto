@@ -16,18 +16,20 @@ h1, h2, h3, h4, h5 {
 }
 
 #condaBox {
-	width: 300px;
+	width: 320px;
 	min-height: 78px;
-	background: white;
-	color: black;
+	background: rgba(black, 0.2);
+	color: white;
 	z-index: 1;
 	border-radius: 0px 10px 10px 10px;
 	margin-top: 50px;
 
 	.tab {
-		color: $main-color;
-		background: white;
+		color: white;
+		border: 2px solid white;
+		background: rgba(black, 0.2);
 		padding: 4px 10px;
+		top: -36px;
 		left: -2px;
 	}
 }
@@ -398,7 +400,7 @@ div.highlight, figure.highlight {
 	font-family: $mono-font;
 	background: $code-background;
 	border-radius: 8px 8px 0px 0px;
-	padding: 6px 12px;
+	padding: 4px 12px 6px 12px;
 	display: inline-block;
 	position: relative;
 	float: left;

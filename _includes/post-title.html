@@ -1,6 +1,6 @@
 <p class="post-details">
 	{% for category in include.post.categories %}
-		{% if category != "news" and category != "publications" %}
+		{% if category != "news" and category != "blog" %}
 			<span class="blog-filter">
 				<a href="{{ site.baseurl }}/category/{{ category | slugify }}/">{{ category | capitalize }}</a>
 			</span>

@@ -5,22 +5,30 @@
     var tabLabels = {
         "python": ".py",
         "sh": ".sh",
-        "yaml": ".yaml",
+        "yaml": ".yml",
+        "javascript": ".js",
     }
 
     for (var i=0; i<$(".highlight").length; i++) {
         var snippet = $(".highlight")[i];
         var syntax = "";
 
+        if ($(snippet).attr("class").includes("language")) {
+            var classes = $(snippet).attr("class").split(" ");
+        }
+
         // catches normal code snippets
-        if ($(snippet).parent().hasClass("highlighter-rouge")) {
+        else if ($(snippet).parent().hasClass("highlighter-rouge")) {
             var classes = $(snippet).parent().attr("class").split(" ");
         }
 
         // catches the conda install box and any other "manually"
         // added snippets
-        else {
-            var classes = $(snippet).attr("class").split(" ");
+        else if ($(snippet).find("pre").first().find("code").first() != undefined) {
+            var pre = $(snippet).find("pre").first();
+            var code = $(pre).find("code").first();
+            var classes = $(code).attr("class").split(" ");
+            console.log("HERE"+classes);
         }
 
         for (var j=0; j < classes.length; j++) {

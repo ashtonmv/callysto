@@ -6,8 +6,8 @@
   link: /sponsors/
   new_window: false
   highlight: false
-- name: Publications
-  link: /publications/
+- name: Blog
+  link: /blog/
   new_window: false
   highlight: false
 - name: Documentation

@@ -1,0 +1,14 @@
+---
+title: Blog
+description: Read our blog
+---
+
+<div class="text-container">
+	<p>
+		If you have published a site using callysto and would like
+		to share it here, please <a onclick="$('#formbutton-button')[0].click();">let me know!</a>
+	</p>
+	<ul class="blog-posts">
+		{% include list-posts.html posts=site.categories.blog %}
+	</ul>
+</div>
