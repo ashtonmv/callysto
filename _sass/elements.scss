@@ -366,12 +366,6 @@ div.highlight, figure.highlight {
 	.gi { color: $green; }
 }
 
-// figure.highlight {
-// 	border-radius: 8px 0px 10px 10px;
-// 	background: $main-color;
-// 	color: white;
-// }
-
 .highlight {
 	border-radius: 10px;
 	background: $code-background;
@@ -379,11 +373,11 @@ div.highlight, figure.highlight {
 
 	pre {
 		padding: 0px 25px;
-		font-size: 1em;
+		font-size: 0.5em;
 		line-height: 1.5em;
-		font-family: $mono-font;
+		word-spacing: 4px;
 		letter-spacing: 0.3px;
-		word-spacing: 1px;
+		font-family: $mono-font;
 	}
 }
 

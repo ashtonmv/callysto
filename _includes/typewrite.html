@@ -1,5 +1,10 @@
 <script>
 
+    $( document ).load(function() {
+        $("#footer").hide();
+        $("#content").hide();
+    });
+
     $( document ).ready(function() {
         Typer = new TxtType($("#condaInstall"), "", "{{ site.installation }}");
         Typer.type();
@@ -27,6 +32,8 @@
 
             setTimeout(function() {
                 $("#screenshot").attr("data-aos-offset", "-300px");
+                $("#content").show();
+                $("#footer").show();
                 $("#content").attr("data-aos-offset", "-300px");
                 AOS.init({
                     offset: 300, // offset (in px) from the original trigger point
