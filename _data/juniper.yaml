@@ -1,6 +1,0 @@
-url: "https://mybinder.org"
-repo: "ashtonmv/pyiron_binder"
-theme: "callysto"
-isolateCells: false
-msgLoading: " "
-useStorage: true

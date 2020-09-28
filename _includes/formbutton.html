@@ -1,20 +1,19 @@
 <script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
-<script src="https://kit.fontawesome.com/1d40be1112.js" crossorigin="anonymous"></script>
 
 <!-- Add contact button (see https://formspree.io/formbutton/docs) -->
 <script>
     window.formbutton=window.formbutton||function(){(formbutton.q=formbutton.q||[]).push(arguments)};
     formbutton("create", {
-        title: "Contact Us",
-        description: "Send us a comment or question and we'll be in touch soon.",
+        title: "{{ site.data.formbutton.title }}",
+        description: null,
         buttonImg: "<i class='fas fa-comment-alt' style='font-size: 24px;'/>",
-        action: "{{ site.formspree }}",
-        theme: "classic",
+        action: "https://formspree.io/{{ site.data.formbutton.link }}",
+        theme: "{{ site.data.formbutton.theme }}",
         onResponse: function(ok, setStatus) {
             if (ok) {
-            setStatus("<p>Thanks for your message! We'll respond to the email address you supplied soon.</p></br><img src='/images/heart-solid.svg' style='width: 20px'></img><p>the callysto team</p>");
+            setStatus("<span>{{ site.data.formbutton.response }}</span>");
             } else {
-            setStatus("<span style='color:red'>Oops! There was a problem. Please check that you've entered a valid email address.</span>");
+            setStatus("<span style='color: red'>{{ site.data.formbutton.error_message }}</span>");
             }
         },
         fields: [{
@@ -37,16 +36,25 @@
         type: "submit"
         }],
         styles: {
-        fontFamily:'"San Francisco", "Helvetica Neue", "Helvetica", "Arial"',
+        fontSize: "14px",
+        fontFamily: "{{ site.data.formbutton.font.body }}",
+        lineHeight: "1",
+        body: {
+            background: "{{ site.data.formbutton.color.body-background }}"
+        },
         button: {
-            border: "2px solid {{ site.colors.main }}",
-            background: "white",
-            color: "{{ site.colors.main }}",
+            border: "none",
+            borderRadius: "8px",
+            background: "{{ site.data.formbutton.color.button-background }}",
+            color: "{{ site.data.formbutton.color.button }}",
             boxShadow: "None",
+            width: "50px",
+            height: "50px"
         },
         title: {
-            background: "white",
-            color: "{{ site.colors.main }}",
+            fontFamily: "{{ site.data.formbutton.font.title }}",
+            background: "{{ site.data.formbutton.color.title-background }}",
+            color: "{{ site.data.formbutton.color.title }}",
             letterSpacing: "0.05em",
         },
         closeButton: {

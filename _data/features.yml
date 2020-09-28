@@ -1,5 +1,5 @@
 -
-    header: Yaml-heavy customization
+    header: Yaml-centered customization
     icon: images/feature-icon.png
     content: <p>Don't get your hands dirty with HTML + css unless you want to.</p>
         <p>Most of callysto's options can be edited directly in the main <span class="inline">_config.yml</span> file or
